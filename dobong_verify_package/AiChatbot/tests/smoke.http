@@ -1,0 +1,33 @@
+### health
+GET http://localhost:5000/api/health
+
+### 느좋 + 키워드(전망)
+POST http://localhost:5000/api/dobong/recommend
+Content-Type: application/json
+
+{
+  "category": "느좋",
+  "keyword": "전망",
+  "k": 5,
+  "seed": 1
+}
+
+### 숨은핫플 + 브런치(위치 포함)
+POST http://localhost:5000/api/dobong/recommend
+Content-Type: application/json
+
+{
+  "category": "숨은핫플",
+  "keyword": "브런치",
+  "user_location": {"lat": 37.66, "lon": 127.03},
+  "k": 5
+}
+
+### 챗봇(자연어)
+POST http://localhost:5000/api/chatbot
+Content-Type: application/json
+
+{
+  "text": "조용하게 산책할 곳 추천해줘. 전망도 좋으면 좋겠어.",
+  "k": 5
+}

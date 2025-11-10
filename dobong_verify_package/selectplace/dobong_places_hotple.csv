@@ -1,0 +1,47 @@
+﻿name,lat,lon,base_type,top_category,sub_category,raw_tags,osm_type,osm_id
+스시혼,37.6462068,127.034021,식당,숨은핫플,개성있는 식당,"{""amenity"": ""restaurant"", ""capacity"": ""ABOUT 40"", ""cuisine"": ""sushi"", ""name"": ""스시혼"", ""opening_hours"": ""Tue-Sun day. they have a break time.""}",node,5139100541
+영즉석떡볶이,37.6459245,127.0316581,식당,숨은핫플,개성있는 식당,"{""amenity"": ""restaurant"", ""name"": ""영즉석떡볶이""}",node,8114227517
+대운떡볶이,37.6444523,127.0304133,식당,숨은핫플,개성있는 식당,"{""addr:city"": ""서울특별시"", ""addr:district"": ""도봉구"", ""addr:housenumber"": ""37"", ""addr:street"": ""도봉로97길"", ""addr:subdistrict"": ""쌍문동"", ""amenity"": ""restaurant"", ""name"": ""대운떡볶이""}",node,12074457895
+신고서점,37.6516546,127.0141496,서점,숨은핫플,독립/테마서점,"{""name"": ""신고서점"", ""shop"": ""books""}",node,10248733662
+영자네곱창,37.6473581,127.0329793,식당,숨은핫플,개성있는 식당,"{""amenity"": ""restaurant"", ""name"": ""영자네곱창""}",node,8114246517
+구룡포물회,37.6493895,127.0344304,식당,숨은핫플,개성있는 식당,"{""amenity"": ""restaurant"", ""name"": ""구룡포물회""}",node,8114268118
+춘천닭갈비,37.6485884,127.0337289,식당,숨은핫플,개성있는 식당,"{""amenity"": ""restaurant"", ""name"": ""춘천닭갈비""}",node,8114273617
+두리두리김밥,37.6494318,127.0343282,식당,숨은핫플,개성있는 식당,"{""amenity"": ""restaurant"", ""name"": ""두리두리김밥""}",node,8114287317
+별난주점,37.6493268,127.0345673,바/펍,숨은핫플,특색있는 바/펍,"{""amenity"": ""pub"", ""name"": ""별난주점""}",node,8114287318
+치킨마루,37.6601999,127.0277781,식당,숨은핫플,개성있는 식당,"{""addr:city"": ""서울특별시"", ""addr:district"": ""도봉구"", ""addr:street"": ""방학로 (Banghang-ro)"", ""addr:subdistrict"": ""방학동"", ""amenity"": ""restaurant"", ""cuisine"": ""chicken"", ""name"": ""치킨마루"", ""outdoor_seating"": ""no"", ""smoking"": ""no"", ""takeaway"": ""yes""}",node,4642367627
+삼각지붕에화덕피자,37.6568706,127.027691,식당,숨은핫플,개성있는 식당,"{""addr:city"": ""서울특별시"", ""addr:district"": ""도봉구"", ""addr:housenumber"": ""67"", ""addr:street"": ""시루봉길 (Sirubong-gil)"", ""addr:subdistrict"": ""쌍문동"", ""amenity"": ""restaurant"", ""cuisine"": ""italian"", ""name"": ""삼각지붕에화덕피자"", ""opening_hours"": ""10:00~22:00"", ""outdoor_seating"": ""no"", ""smoking"": ""no"", ""takeaway"": ""yes""}",node,4642387582
+돈까스클럽,37.6569917,127.0279026,식당,숨은핫플,개성있는 식당,"{""addr:city"": ""서울특별시"", ""addr:district"": ""도봉구"", ""addr:housenumber"": ""68"", ""addr:street"": ""시루봉길 (Sirubong-gil)"", ""addr:subdistrict"": ""쌍문동"", ""amenity"": ""restaurant"", ""cuisine"": ""japanese"", ""name"": ""돈까스클럽"", ""opening_hours"": ""11:30-21:00"", ""outdoor_seating"": ""no"", ""smoking"": ""no"", ""takeaway"": ""yes""}",node,4642393912
+비어캐빈,37.6587425,127.0281662,바/펍,숨은핫플,특색있는 바/펍,"{""addr:city"": ""서울특별시"", ""addr:district"": ""도봉구"", ""addr:housename"": ""태선빌딩"", ""addr:housenumber"": ""13"", ""addr:street"": ""시루봉로6길"", ""addr:subdistrict"": ""쌍문동"", ""amenity"": ""bar"", ""name"": ""비어캐빈""}",node,4642417497
+찰리네맥주짐,37.6586943,127.0280134,바/펍,숨은핫플,특색있는 바/펍,"{""addr:city"": ""서울특별시"", ""addr:district"": ""도봉구"", ""addr:housenumber"": ""88"", ""addr:street"": ""시루봉길 (Sirubong-gil)"", ""addr:subdistrict"": ""쌍문동"", ""amenity"": ""bar"", ""name"": ""찰리네맥주짐"", ""outdoor_seating"": ""yes"", ""smoking"": ""no""}",node,4642418014
+bbq,37.6562121,127.027942,식당,숨은핫플,개성있는 식당,"{""addr:city"": ""서울특별시"", ""addr:district"": ""도봉구"", ""addr:housenumber"": ""62"", ""addr:street"": ""시루봉길 (Sirubong-gil)"", ""addr:subdistrict"": ""쌍문동"", ""amenity"": ""restaurant"", ""cuisine"": ""chicken"", ""delivery"": ""yes"", ""name"": ""bbq""}",node,4642628148
+부부회집,37.639393,127.038409,식당,숨은핫플,개성있는 식당,"{""amenity"": ""restaurant"", ""name"": ""부부회집"", ""name:en"": ""Bubu Fish Restaurant"", ""name:ko"": ""부부회집"", ""name:ko-Latn"": ""Bubuhoejip"", ""ncat"": ""회집"", ""source"": ""http://kr.open.gugi.yahoo.com""}",node,368954959
+네바다횟집,37.6461869,127.0369697,식당,숨은핫플,개성있는 식당,"{""amenity"": ""restaurant"", ""cuisine"": ""sushi"", ""name"": ""네바다횟집""}",node,10299489746
+목포항회세꼬시 창동점,37.6462865,127.0362317,식당,숨은핫플,개성있는 식당,"{""amenity"": ""restaurant"", ""cuisine"": ""sushi"", ""name"": ""목포항회세꼬시 창동점""}",node,10299509070
+뚱보냉면,37.6463073,127.0365331,식당,숨은핫플,개성있는 식당,"{""amenity"": ""restaurant"", ""name"": ""뚱보냉면""}",node,10299525838
+Gim Collection,37.6459594,127.0350873,문화공간,숨은핫플,갤러리/문화공간,"{""name"": ""Gim Collection"", ""tourism"": ""gallery""}",node,10299525923
+상계주공17단지상가,37.6457578,127.0531141,식당,숨은핫플,개성있는 식당,"{""amenity"": ""restaurant"", ""name"": ""상계주공17단지상가""}",node,4684523319
+남경,37.6510614,127.0414314,식당,숨은핫플,개성있는 식당,"{""amenity"": ""restaurant"", ""cuisine"": ""chinese"", ""name"": ""남경""}",node,12598686390
+하누소,37.6514784,127.0448186,식당,숨은핫플,개성있는 식당,"{""addr:city"": ""서울특별시"", ""addr:district"": ""도봉구"", ""addr:housenumber"": ""327"", ""addr:street"": ""노해로"", ""addr:subdistrict"": ""창동"", ""amenity"": ""restaurant"", ""cuisine"": ""korean"", ""name"": ""하누소""}",node,12062685057
+장수보쌈족발,37.6532491,127.046939,식당,숨은핫플,개성있는 식당,"{""amenity"": ""restaurant"", ""cuisine"": ""korean"", ""name"": ""장수보쌈족발""}",node,12598681017
+사누끼,37.6534901,127.0464727,식당,숨은핫플,개성있는 식당,"{""amenity"": ""restaurant"", ""cuisine"": ""japanese"", ""name"": ""사누끼""}",node,12598681018
+섭생정식,37.6513612,127.0455702,식당,숨은핫플,개성있는 식당,"{""amenity"": ""restaurant"", ""cuisine"": ""korean"", ""name"": ""섭생정식""}",node,12598713198
+즐거운술상,37.6513605,127.0458462,바/펍,숨은핫플,특색있는 바/펍,"{""amenity"": ""pub"", ""name"": ""즐거운술상""}",node,12598730909
+"헤이,카롱",37.6544173,127.0413755,식당,숨은핫플,개성있는 식당,"{""amenity"": ""restaurant"", ""cuisine"": ""dessert"", ""name"": ""헤이,카롱""}",node,12598730912
+삿뽀로 창동점,37.6589226,127.0411845,식당,숨은핫플,개성있는 식당,"{""amenity"": ""restaurant"", ""cuisine"": ""sushi"", ""name"": ""삿뽀로 창동점""}",node,12598734557
+경복궁,37.6589836,127.0412533,식당,숨은핫플,개성있는 식당,"{""amenity"": ""restaurant"", ""cuisine"": ""korean"", ""name"": ""경복궁""}",node,12598801050
+치킨매니아,37.6604397,127.0242893,식당,숨은핫플,개성있는 식당,"{""addr:city"": ""서울특별시"", ""addr:district"": ""도봉구"", ""addr:housenumber"": ""25"", ""addr:postcode"": ""01362"", ""addr:street"": ""방학로15길"", ""addr:subdistrict"": ""방학동"", ""amenity"": ""restaurant"", ""cuisine"": ""chicken"", ""delivery"": ""yes"", ""name"": ""치킨매니아"", ""opening_hours"": ""15:00-02:00"", ""takeaway"": ""yes""}",node,4642465069
+천수함방삼계탕,37.660308,127.0238985,식당,숨은핫플,개성있는 식당,"{""amenity"": ""restaurant"", ""cuisine"": ""regional"", ""name"": ""천수함방삼계탕""}",node,4642472928
+한국SGI도봉문화회관,37.662122,127.03424,문화공간,숨은핫플,갤러리/문화공간,"{""amenity"": ""arts_centre"", ""name"": ""한국SGI도봉문화회관"", ""name:en"": ""Korea SGI Dobong Cultural Center"", ""name:ko"": ""한국SGI도봉문화회관"", ""name:ko-Latn"": ""Hanguk SGI Dobongmunhwahoegwan"", ""ncat"": ""예술회관"", ""source"": ""http://kr.open.gugi.yahoo.com""}",node,368874340
+천수한방삼계탕,37.6629615,127.0345331,식당,숨은핫플,개성있는 식당,"{""addr:city"": ""서울특별시"", ""addr:district"": ""도봉구"", ""addr:housenumber"": ""53"", ""addr:postcode"": ""01356"", ""addr:street"": ""도당로"", ""addr:subdistrict"": ""방학동"", ""amenity"": ""restaurant"", ""cuisine"": ""regional"", ""name"": ""천수한방삼계탕""}",node,4642510123
+은행골,37.6709524,127.0465662,식당,숨은핫플,개성있는 식당,"{""amenity"": ""restaurant"", ""cuisine"": ""sushi"", ""name"": ""은행골""}",node,6468467452
+고기굽는베베,37.6691582,127.043278,식당,숨은핫플,개성있는 식당,"{""amenity"": ""restaurant"", ""cuisine"": ""barbecue"", ""name"": ""고기굽는베베"", ""name:ko"": ""고기굽는베베""}",node,7150443862
+콘 타코,37.6775811,127.0437623,식당,숨은핫플,개성있는 식당,"{""addr:city"": ""서울특별시"", ""addr:district"": ""도봉구"", ""addr:floor"": ""1"", ""addr:housenumber"": ""45"", ""addr:postcode"": ""01307"", ""addr:street"": ""도봉로169나길"", ""addr:subdistrict"": ""도봉동"", ""amenity"": ""restaurant"", ""cuisine"": ""mexican"", ""name"": ""콘 타코"", ""opening_hours"": ""Mo-Sa 11:30-21:00""}",node,12495088969
+도봉산두부,37.6862212,127.0378376,식당,숨은핫플,개성있는 식당,"{""amenity"": ""restaurant"", ""name"": ""도봉산두부""}",node,11664346225
+음식점,37.686173,127.0369005,식당,숨은핫플,개성있는 식당,"{""amenity"": ""restaurant"", ""name"": ""음식점""}",node,11664346227
+김밥나라,37.6839227,127.0455894,식당,숨은핫플,개성있는 식당,"{""addr:city"": ""서울특별시"", ""addr:district"": ""도봉구"", ""addr:housenumber"": ""6"", ""addr:postcode"": ""01303"", ""addr:street"": ""도봉로181길"", ""addr:subdistrict"": ""도봉동"", ""amenity"": ""restaurant"", ""name"": ""김밥나라"", ""opening_hours"": ""24/7"", ""phone"": ""+82 2 956 8880""}",node,7669685511
+심마니한방삼계탕,37.6869689,127.0405722,식당,숨은핫플,개성있는 식당,"{""amenity"": ""restaurant"", ""name"": ""심마니한방삼계탕""}",node,11664417496
+엘지트윈문고,37.6557502,127.027822,서점,숨은핫플,독립/테마서점,"{""addr:city"": ""서울특별시"", ""addr:district"": ""도봉구"", ""addr:housenumber"": ""57"", ""addr:postcode"": ""01375"", ""addr:street"": ""시루봉로"", ""addr:subdistrict"": ""쌍문동"", ""building"": ""yes"", ""name"": ""엘지트윈문고"", ""shop"": ""books""}",way,856402212
+설담재,37.6548469,127.0391441,식당,숨은핫플,개성있는 식당,"{""amenity"": ""restaurant"", ""building"": ""yes"", ""cuisine"": ""korean"", ""name"": ""설담재""}",way,1204389857
+시소,37.6581721,127.0364191,식당,숨은핫플,개성있는 식당,"{""amenity"": ""restaurant"", ""building"": ""commercial"", ""cuisine"": ""sushi"", ""name"": ""시소""}",way,1204389871
+메이 유러피안 다이닝,37.6779518,127.0354026,식당,숨은핫플,개성있는 식당,"{""amenity"": ""restaurant"", ""building"": ""yes"", ""cuisine"": ""western"", ""name"": ""메이 유러피안 다이닝"", ""name:en"": ""May European Dining"", ""name:ko"": ""메이 유러피안 다이닝""}",way,1122850383
+봉래면옥,37.6889032,127.0443231,식당,숨은핫플,개성있는 식당,"{""amenity"": ""restaurant"", ""building"": ""yes"", ""cuisine"": ""noodle"", ""name"": ""봉래면옥""}",way,316772089
