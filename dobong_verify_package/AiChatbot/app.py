@@ -2,7 +2,7 @@
 import os
 import json
 import math
-from flask import Flask, request, Response
+from flask import Flask, request, Response, render_template
 from recommender.recommend_service import recommend_places, health_status
 from recommender.reask import suggest_alternatives, parse_user_text
 
@@ -316,14 +316,15 @@ addAI("안녕하세요! 누구와 함께할 장소를 찾으시나요? (예: 친
 </html>
 """
 
-───────────────── Routes ─────────────────────────
+# ───────────────────────── Routes ─────────────────────────
 @app.get("/")
 def index():
-    return render_template("chat.html")  # templates/chat.html 파일로 수정
+    return render_template("chat.html")  # templates/chat.html
 
 @app.get("/chat")
 def chat_ui():
-    return render_template("chat.html")  
+    return render_template("chat.html")  # 동일 템플릿 재사용
+
 @app.get("/favicon.ico")
 def favicon():
     # 404 로그 없애기
@@ -424,5 +425,3 @@ def api_chatbot():
 if __name__ == "__main__":
     port = int(os.getenv("PORT", "5000"))
     app.run(debug=True, port=port, threaded=True)
-
-
