@@ -316,15 +316,14 @@ addAI("안녕하세요! 누구와 함께할 장소를 찾으시나요? (예: 친
 </html>
 """
 
-# ───────────────────────── Routes ─────────────────────────
+───────────────── Routes ─────────────────────────
 @app.get("/")
 def index():
-    return Response(CLEAN_HTML_UI, mimetype="text/html; charset=utf-8")
+    return render_template("chat.html")  # templates/chat.html 파일로 수정
 
 @app.get("/chat")
 def chat_ui():
-    return Response(CLEAN_HTML_UI, mimetype="text/html; charset=utf-8")
-
+    return render_template("chat.html")  
 @app.get("/favicon.ico")
 def favicon():
     # 404 로그 없애기
@@ -425,4 +424,5 @@ def api_chatbot():
 if __name__ == "__main__":
     port = int(os.getenv("PORT", "5000"))
     app.run(debug=True, port=port, threaded=True)
+
 
