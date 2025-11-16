@@ -319,7 +319,6 @@ addAI("안녕하세요! 누구와 함께할 장소를 찾으시나요? (예: 친
 # ───────────────────────── Routes ─────────────────────────
 @app.get("/")
 def index():
-    # HTML은 JSON으로 감싸지 말고 그대로 반환해야 함
     return Response(CLEAN_HTML_UI, mimetype="text/html; charset=utf-8")
 
 @app.get("/chat")
@@ -426,3 +425,4 @@ def api_chatbot():
 if __name__ == "__main__":
     port = int(os.getenv("PORT", "5000"))
     app.run(debug=True, port=port, threaded=True)
+
