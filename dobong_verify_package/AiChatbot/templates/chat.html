@@ -1,0 +1,474 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>AI 도봉 챗봇</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<style>
+  :root {
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+    --bg-grad-top: #cfe2ff;
+    --bg-grad-bottom: #f7fbff;
+    --primary: #3d7cff;
+    --primary-soft: #e3efff;
+  }
+
+  /* ───────── 바깥(웹페이지) 배경 ───────── */
+  body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(circle at top, #e6f0ff 0%, #d4d4e0 40%, #b3b9c8 100%);
+  }
+
+  /* ───────── 폰 프레임 ───────── */
+  .phone-frame {
+    width: 360px;
+    max-width: 100%;
+    height: 720px;
+    max-height: calc(100vh - 32px);
+    background: #f6f9ff;
+    border-radius: 30px;
+    box-shadow: 0 22px 40px rgba(0,0,0,0.22);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+
+  /* 상단바 */
+  #topBar {
+    height: 56px;
+    padding: 0 16px;
+    display: flex;
+    align-items: center;
+    background: rgba(246,249,255,0.96);
+    border-bottom: 1px solid rgba(0,0,0,0.04);
+    backdrop-filter: blur(10px);
+  }
+
+  .back-btn {
+    width: 32px;
+    height: 32px;
+    border-radius: 999px;
+    border: none;
+    background: #ffffff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    margin-right: 8px;
+    cursor: pointer;
+  }
+  .back-btn span { font-size: 18px; }
+
+  #titleChatbot {
+    flex: 1;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 700;
+    color: #222;
+    margin-right: 32px; /* back 버튼 공간 확보 */
+  }
+
+  /* ───────── 채팅 영역 ───────── */
+  #chat {
+    flex: 1;
+    padding: 16px 14px 12px;
+    overflow-y: auto;
+    background: linear-gradient(
+      180deg,
+      #7ac5ff 0%,
+      #9fd9ff 45%,
+      #f7fcff 100%
+    );
+  }
+
+  .row {
+    display: flex;
+    margin: 8px 0;
+  }
+
+  .ai, .me {
+    max-width: 75%;
+    padding: 10px 12px;
+    border-radius: 16px;
+    font-size: 14px;
+    line-height: 1.45;
+    white-space: pre-wrap;
+    position: relative;
+  }
+
+  /* AI 말풍선 + 프로필 */
+  .row.ai-row {
+    align-items: flex-end;
+    position: relative;
+  }
+
+  .ai {
+    background: #e0edff;
+    border: 1px solid #d1e2ff;
+    margin-left: 36px;
+    border-top-left-radius: 4px;
+  }
+
+  .ai-row::before {
+    content: "";
+    width: 28px;
+    height: 28px;
+    border-radius: 999px;
+    background: #ffffff url("https://via.placeholder.com/64x64.png?text=A") center/cover no-repeat;
+    position: absolute;
+    left: 0;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.15);
+  }
+
+  /* 내 말풍선 + 프로필 */
+  .row.me-row {
+    justify-content: flex-end;
+    align-items: flex-end;
+    position: relative;
+  }
+
+  .me {
+    background: #ffffff;
+    border: 1px solid #e7dbff;
+    margin-right: 36px;
+    border-top-right-radius: 4px; 
+  }
+
+
+  /* ───────── 하단 입력 영역 ───────── */
+  #inputBarWrapper {
+    padding: 10px 10px 16px;
+    background: linear-gradient(to top, #f6f9ff 40%, rgba(246,249,255,0.3) 100%);
+  }
+
+  #inputBar {
+    display: flex;
+    align-items: center;
+    padding: 6px 8px;
+    border-radius: 999px;
+    background: #ffffff;
+    box-shadow: 0 6px 14px rgba(0,0,0,0.18);
+  }
+
+  #q {
+    flex: 1;
+    height: 40px;
+    border: none;
+    outline: none;
+    background: transparent;
+    padding-left: 14px;
+    font-size: 14px;
+  }
+
+  #q::placeholder {
+    color: #b2b2b9;
+  }
+
+  #send {
+    width: 40px;
+    height: 40px;
+    border-radius: 999px;
+    border: none;
+    background: linear-gradient(135deg, #3d7cff, #5aa5ff);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(61,124,255,0.55);
+  }
+
+  #send span {
+    color: #fff;
+    font-size: 18px;
+  }
+
+  #send:disabled {
+    opacity: .6;
+    cursor: default;
+    box-shadow: none;
+  }
+</style>
+</head>
+
+<body>
+<div class="phone-frame">
+  <div id="topBar">
+    <button class="back-btn"><span>←</span></button>
+    <div id="titleChatbot">AI 도봉</div>
+  </div>
+
+  <div id="chat"></div>
+
+  <div id="inputBarWrapper">
+    <form id="f">
+      <div id="inputBar">
+        <input id="q" type="text" placeholder="무엇이든 물어보세요!" autocomplete="off">
+        <button id="send" type="submit"><span>➤</span></button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script>
+const chat = document.getElementById('chat');
+const form = document.getElementById('f');
+const input = document.getElementById('q');
+const btn = document.getElementById('send');
+
+let convState = { state: 'init', keyword: null, offset: 0, lastResults: [] };
+
+/** ▼ 필요 시 직접 채워 넣을 기본 키 (없으면 자동 추출 시도) */
+const STATIC_MAPS_KEY = ''; // 예: 'AIzaSy...'
+
+function addMe(text){
+  const row = document.createElement('div');
+  row.className = 'row me-row';
+  const b = document.createElement('div');
+  b.className = 'me';
+  b.textContent = text;
+  row.appendChild(b);
+  chat.appendChild(row);
+  chat.scrollTop = chat.scrollHeight;
+}
+
+function addAI(text){
+  const row = document.createElement('div');
+  row.className = 'row ai-row';
+  const b = document.createElement('div');
+  b.className = 'ai';
+  b.textContent = text;
+  row.appendChild(b);
+  chat.appendChild(row);
+  chat.scrollTop = chat.scrollHeight;
+}
+
+function addAIHTML(html){
+  const row = document.createElement('div');
+  row.className = 'row ai-row';
+  const b = document.createElement('div');
+  b.className = 'ai';
+  b.innerHTML = html;
+  row.appendChild(b);
+  chat.appendChild(row);
+  chat.scrollTop = chat.scrollHeight;
+}
+
+function esc(s){
+  return String(s ?? '').replace(/[&<>"']/g, c => ({
+    '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
+  }[c]));
+}
+
+function escURL(u){
+  try { return encodeURI(u); } catch(e){ return '#'; }
+}
+
+function extractKeyFromUrl(url){
+  try {
+    const u = new URL(url);
+    const k = u.searchParams.get('key');
+    return k || '';
+  } catch(e){ return ''; }
+}
+
+function findAnyImageKeyFromState(){
+  for (const p of convState.lastResults || []) {
+    const iu = p?.imageUrl || p?.imageURL || p?.photoUrl;
+    if (iu) {
+      const k = extractKeyFromUrl(iu);
+      if (k) return k;
+    }
+  }
+  return '';
+}
+
+function buildStaticMapUrl(place){
+  const lat = place.lat ?? place.latitude;
+  const lon = place.lon ?? place.longitude;
+  const placeId = place.placeId || place.place_id;
+
+  const keyFromImageUrl =
+    extractKeyFromUrl(place.imageUrl || place.imageURL || place.photoUrl || '') ||
+    findAnyImageKeyFromState() ||
+    STATIC_MAPS_KEY;
+
+  if (!keyFromImageUrl) return '';
+
+  const base = 'https://maps.googleapis.com/maps/api/staticmap';
+  const params = new URLSearchParams();
+  params.set('size', '720x480');
+  params.set('scale', '2');
+  params.set('zoom', '16');
+  params.set('key', keyFromImageUrl);
+
+  if (lat && lon) {
+    params.set('center', `${lat},${lon}`);
+    params.append('markers', `${lat},${lon}`);
+  } else if (placeId) {
+    params.set('center', `place_id:${placeId}`);
+    params.append('markers', `place_id:${placeId}`);
+  } else {
+    return '';
+  }
+
+  return `${base}?${params.toString()}`;
+}
+
+function showDetails(place) {
+  if (!place) return;
+
+  const name = place.name || '';
+  const address = place.address || '';
+  const imageUrl = place.imageUrl || place.imageURL || place.photoUrl || '';
+  const mapsUrl = place.mapsUrl || place.mapUrl || '';
+  const sub = place.sub_category || '';
+  const tags = (place.tags && place.tags.length) ? place.tags.join(', ') : '';
+
+  let visualUrl = '';
+  if (imageUrl) {
+    visualUrl = imageUrl;
+  } else {
+    visualUrl = buildStaticMapUrl(place);
+  }
+
+  const imgBlock = visualUrl
+    ? `<div style="margin:8px 0 10px">
+         <a href="${escURL(visualUrl)}" target="_blank" rel="noopener">
+           <img src="${escURL(visualUrl)}" alt="${esc(name)||'이미지'}" style="max-width:100%;border-radius:8px"/>
+         </a>
+       </div>`
+    : '';
+
+  const metaLines = [];
+  const lat = place.lat ?? place.latitude;
+  const lon = place.lon ?? place.longitude;
+
+  for (const key in place) {
+    if ([
+      'name','sub_category','address','tags','lat','lon',
+      'latitude','longitude','id','band_label','final_score',
+      'imageUrl','imageURL','photoUrl','mapsUrl','mapUrl',
+      'placeId','place_id'
+    ].includes(key)) continue;
+
+    const v = place[key];
+    if (v !== null && v !== undefined && v !== '') {
+      metaLines.push(`· ${esc(key)}: ${esc(v)}`);
+    }
+  }
+  if (lat && lon) {
+    metaLines.push(`· 좌표: ${lat}, ${lon}`);
+  }
+
+  const mapLink = mapsUrl
+    ? `<a href="${escURL(mapsUrl)}" target="_blank" rel="noopener">지도 열기</a>`
+    : '';
+
+  const lines = [`[상세 정보: ${esc(name || '이름없음')}]`];
+  if (sub) lines.push(`· 분류: ${esc(sub)}`);
+  if (address) lines.push(`· 주소: ${esc(address)}`);
+  if (tags) lines.push(`· 태그: ${esc(tags)}`);
+  if (metaLines.length) lines.push(...metaLines);
+  if (mapLink) lines.push(`· ${mapLink}`);
+
+  addAIHTML([lines.join('<br>'), imgBlock].join(''));
+}
+
+async function callChatbotAPI(text, offset = 0){
+  btn.disabled = true;
+  try{
+    const res = await fetch('/api/chatbot', {
+      method:'POST',
+      headers:{'Content-Type':'application/json', 'Accept':'application/json'},
+      body: JSON.stringify({ text, k: 5, offset })
+    });
+
+    const ct = (res.headers.get('content-type') || '').toLowerCase();
+    const payload = ct.includes('application/json')
+      ? await res.json()
+      : { status:'error', message: await res.text() };
+
+    if (!res.ok && payload.status !== 'success') {
+      addAI('오류: ' + (payload.detail || payload.message || '알 수 없는 오류'));
+      convState.state = 'init';
+      return;
+    }
+    if (payload.status === 'error') {
+      addAI('오류: ' + (payload.detail || payload.message || '알 수 없는 오류'));
+      convState.state = 'init';
+      return;
+    }
+
+    if (payload.message){
+      addAI(payload.message);
+      convState.lastResults = payload.results || [];
+      if (convState.lastResults.length > 0) {
+        addAI("원하시는 장소가 없다면 '다시 추천'을 입력해주세요.\n자세히 보고 싶다면 '번호(1~5)'를 입력해주세요.");
+        convState.state = 'awaiting_followup';
+        convState.keyword = text;
+        convState.offset = offset;
+      } else {
+        if (offset > 0) addAI("더 이상 추천할 장소가 없습니다. 새로운 키워드로 검색해주세요.");
+        convState.state = 'init';
+        convState.offset = 0;
+        convState.lastResults = [];
+      }
+    } else {
+      addAI('응답이 비어있어요.');
+      convState.state = 'init';
+    }
+  } catch(e) {
+    addAI('오류: ' + e);
+    convState.state = 'init';
+  } finally {
+    btn.disabled = false;
+  }
+}
+
+form.addEventListener('submit', (e)=>{
+  e.preventDefault();
+  const text = input.value.trim();
+  if(!text) return;
+  addMe(text);
+  input.value = '';
+
+  if (convState.state === 'awaiting_followup') {
+    const num = parseInt(text);
+    if (text.includes('추천')) {
+      addAI("네, 다음 장소(Top 6-10)를 추천해드릴게요.");
+      const nextOffset = convState.offset + 5;
+      callChatbotAPI(convState.keyword, nextOffset);
+    } else if (!Number.isNaN(num) && num >= 1 && num <= convState.lastResults.length) {
+      const place = convState.lastResults[num - 1];
+      showDetails(place);
+      addAI("원하시는 장소가 없다면 '다시 추천'을 입력해주세요.\n다른 키워드로 검색하셔도 좋습니다.");
+    } else {
+      convState.state = 'init';
+      convState.offset = 0;
+      callChatbotAPI(text, 0);
+    }
+  } else {
+    convState.state = 'init';
+    convState.offset = 0;
+    callChatbotAPI(text, 0);
+  }
+});
+
+// .pill 은 지금 없지만 혹시 추가할지도 모르니 남겨둠
+document.querySelectorAll('.pill').forEach(p=>{
+  p.addEventListener('click', ()=>{
+    input.value = p.textContent;
+    form.dispatchEvent(new Event('submit'));
+  });
+});
+
+addAI("안녕하세요! 누구와 함께할 장소를 찾으시나요? (예: 친구, 연인, 가족)\n다른 키워드(예: 브런치 카페)도 좋습니다.");
+</script>
+</body>
+</html>
